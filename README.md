@@ -17,3 +17,22 @@ After running the script in run_analysis.R, a file named tidyData.txt will be cr
 You can read this file by running the following R script.
 
 data <- read.table("tidyData.txt", header = TRUE)
+
+## What the run_analysis.R file does
+The file is documented internally to correspond to the 5 steps in the project.
+
+Step 1: Combine the data to one data set.
+The source data is broken up into test and training data.  It also has the activities and
+subjects in separate files.  The code combines these four sets of data by adding the activity and subject as columns to both the test and training data.  Then uses a row binding technique to combine the test and training data.
+
+Step 2: Only get Mean and Standard Deviation columns
+The code extracts only the measurements of the mean and standard deviation columns. 
+
+Step 3: Get Activity Names
+The code uses a merge to join to the text name of the activity
+
+Step 4: Appropriately label the data set variables
+This was actually done in the load process.
+
+Step 5: Create a separate tidy data set
+With one pipeline command, the code summarizes (gets the mean) the variables by subject and activity.
